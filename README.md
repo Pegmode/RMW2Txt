@@ -2,7 +2,7 @@
 Custom tool to make sound sequence data from the Rockman World 2 sound engine human readable. Intended for reverse engineering, GB developers or musicians wanting to work with the RMW2 engine. Based on .vgm2txt.
 
 ## usage
-RMW2TXT takes in takes in sound sequence data in the form a .bin file. Currently you must rip this yourself. EG: title/wily station sequence can be found in the rockman world 2 .gbs file at `0x8E6-0x958`
+RMW2TXT takes in takes in sound sequence data in the form a .bin file. Currently you must rip this yourself. EG: title/wily station sequence can be found in the North American release of Mega Man II at `0x1C6E6-0x1C758`.
 
 usage: `RMW2Txt {inputfilepath} [optional args]`
 ### args
