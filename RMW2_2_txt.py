@@ -181,8 +181,8 @@ def cmdSetDutyArg(buffer:FileBuffer, text:RowText):
 
 def cmdSetBaseVolumeArg(buffer:FileBuffer, text:RowText):
     arg = buffer.read(offset=1)
-    vol = arg & 0xF
-    fade = arg>>4
+    vol = arg>>4        # fix the accidental fade and volume bits being swapped
+    fade = arg & 0xF
     #SORRY
     if CHANNELTYPE != ChannelType.WAVE:
         fadeText = ""
