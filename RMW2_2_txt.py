@@ -167,15 +167,18 @@ def cmdSetDutyArg(buffer:FileBuffer, text:RowText):
     arg = buffer.read(offset=1)
     duty = ""
     #SORRY
-    if 0x00 <= arg <= 0x3f:
-        duty = "12.5%"
-    elif 0x40 <= arg <= 0x7f:
-        duty = "25%"
-    elif 0x80 <= arg <= 0xbf:
-        duty = "50%"
-    elif 0xc0 <= arg <= 0xff:
-        duty = "75%"
-    description = f"duty value:{hex(arg)[2:]} ({duty})"
+    if CHANNELTYPE != ChannelType.WAVE:
+        if 0x00 <= arg <= 0x3f:
+            duty = "12.5%"
+        elif 0x40 <= arg <= 0x7f:
+            duty = "25%"
+        elif 0x80 <= arg <= 0xbf:
+            duty = "50%"
+        elif 0xc0 <= arg <= 0xff:
+            duty = "75%"
+        description = f"duty value:{hex(arg)[2:]} ({duty})"
+    else: # channel type for literally anything else than pulse i think
+        description = f"cutoff length:{hex(arg)[2:]}"
     text.addDescription(description)
     text.addData(arg)
 
